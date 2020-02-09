@@ -1,0 +1,56 @@
+@import "./rwd.scss";
+/*************************
+ * Essential definitions *
+ *************************/
+$font-family: 'PingFang SC', 'Microsoft YaHei light', 'WenQuanYi Micro Hei', 'sans-serif';
+$background-color: #ffffff;
+$text-color: #2e2e2e;
+$shadow: 0 4px 6px 0 rgba(0,0,0,0.05);
+$shadow-hover: 0px 2px 64px -16px rgba(0,0,0,0.2);
+
+// root container background color
+$container-background-color: #ffffff;
+$container-max-width: 100%;
+
+$link-color: #777;
+$link-active-color: rgba(20, 161, 249, 0.379);
+$link-hover-color: #222222;
+// $link-visited-color: rgb(174, 40, 40);
+
+/*************
+ * Navigator *
+ *************/
+$navigator-background-color: $background-color;
+$navigator-text-color: #777;
+$navigator-height: 4rem;
+$navigator-shadow: 0 2px 4px 0 rgba(0,0,0,.03);
+/***************
+ * Slider Menu *
+ ***************/
+$slider-menu-width: 100%;
+$slider-menu-background-color: #ffffff;
+$slider-menu-overlay-color: rgba(255, 255, 255, 0.6);
+$slider-menu-text-color: #3c3c3c;
+
+/****************
+ * Modal Dialog *
+ ****************/
+$modal-dialog-overlay-color: rgba(0, 0, 0, 0.7);
+$modal-dialog-background-color: #fff;
+$modal-dialog-text-color: #000000;
+
+
+/****************
+ * Modal Dialog RWD Effect *
+ ****************/
+%dialog-rwd {
+    @include media-breakpoint-up(sm) {
+        margin: 0 3rem;
+    }
+    @include media-breakpoint-up(md) {
+        margin: 0 10rem;
+    }
+    @include media-breakpoint-up(lg) {
+        margin: 0 15rem;
+    }
+}

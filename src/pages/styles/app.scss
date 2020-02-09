@@ -1,0 +1,71 @@
+@import "../../styles/theme.scss";
+@import "../../styles/rwd.scss";
+
+html {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: $link-color;
+    text-decoration: none;
+    font-size: 12pt;
+    &:active {
+        color: $link-active-color;
+    }
+    // &:visited {
+    //     color: $link-visited-color;
+    // }
+    &:hover {
+        color: $link-hover-color;
+    }
+}
+
+body {
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: $background-color;
+    font-size: 12pt;
+    font-family: $font-family;
+    color: $text-color;
+}
+
+// root element for whole web site
+#app {
+    height: auto;
+    max-width: $container-max-width;
+    margin: 0 auto;
+    background-color: $background-color;
+    position: relative;
+    @include media-breakpoint-down(md) {
+        width: 100%;
+    }
+    .container {
+        background-color: #f1f1f1;
+        padding-top: $navigator-height;
+        width: 100%;
+        min-height: calc(100vh - 11.625rem);
+        position: relative;
+        z-index: 0;
+        overflow: hidden;
+    }
+}
+
+button {
+    font-size: 12pt;
+    outline: none;
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+input {
+    outline: none;
+}
+
+.loading {
+    text-align: center;
+    padding: 8rem 0;
+}

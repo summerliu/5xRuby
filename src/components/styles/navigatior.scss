@@ -1,0 +1,22 @@
+:local(.navigatior) {
+    height: 4.375rem;
+    padding: 0 1rem;
+    box-shadow: 0 0 0.3125rem #b0a0ad;
+
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+
+
+    a {
+        display: inline-block;
+        padding-left: 1rem;
+        padding-top: .3125rem;
+        padding-bottom: .3125rem;
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        line-height: inherit;
+        white-space: nowrap;
+    }
+}

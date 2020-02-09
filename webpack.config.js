@@ -6,22 +6,9 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 
-// const VERBOSE = process.argv.indexOf('--verbose') !== -1;
 const DEV_MODE = (process.env.NODE_ENV === 'development');
 const SRC_BASE_PATH = path.resolve(__dirname, './src');
 const OUTPUT_PATH = path.resolve(__dirname, './dist');
-
-// const cssLoaderScssOptions = {
-//     sourceMap: DEV_MODE,
-//     // CSS Modules https://github.com/css-modules/css-modules
-//     modules: false,
-//     localIdentName: 'l-[local]-[hash:base64:6]',
-//     importLoaders: 2,
-// };
-
-// const sassLoaderOptions = {
-//     sourceMap: DEV_MODE,
-// };
 
 const config = {
     target: 'web',
@@ -53,6 +40,15 @@ const config = {
                         ['@babel/plugin-transform-react-display-name'],
                     ],
                 },
+            },
+            {
+                test: /\.scss$/,
+                use: [
+                    'style-loader',
+                    {loader: 'css-loader', options: { sourceMap: DEV_MODE, modules: true, importLoaders: 2 }},
+                    {loader: 'postcss-loader'},
+                    {loader: 'sass-loader', options: { sourceMap: DEV_MODE }},
+                ],
             },
             {
                 test: /\.css$/,
@@ -102,14 +98,7 @@ const config = {
             reloadAll: true, // when desperation kicks in - this is a brute force HMR flag
             cssModules: true, // if you use cssModules, this can help.
         }),
-        new CleanWebpackPlugin({
-            verbose: true,
-            // cleanAfterEveryBuildPatterns: ['static*.*', '!static1.js'],
-        }),
-        // [
-        //     path.join(OUTPUT_PATH, '*.html'),
-        //     path.join(OUTPUT_PATH, 'assets'),
-        // ], 
+        new CleanWebpackPlugin({verbose: true}),
         new HtmlWebpackPlugin({
             template: path.resolve(SRC_BASE_PATH, 'index.html'),
             filename: path.resolve(OUTPUT_PATH, 'index.html'),
