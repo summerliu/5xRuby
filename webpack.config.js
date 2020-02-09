@@ -37,6 +37,7 @@ const config = {
                     plugins: [
                         ['@babel/plugin-syntax-jsx'],
                         ['@babel/plugin-transform-react-jsx'],
+                        ['@babel/plugin-proposal-class-properties'],
                         ['@babel/plugin-transform-react-display-name'],
                     ],
                 },
@@ -54,7 +55,8 @@ const config = {
                 test: /\.css$/,
                 use: [
                     'style-loader',
-                    'css-loader',
+                    {loader: 'css-loader', options: { modules: true, importLoaders: 2 }},
+                    {loader: 'postcss-loader'},
                 ],
             },
             {
@@ -89,7 +91,7 @@ const config = {
             safe: true,
         }),
         new ExtractCssChunks({
-            // Options similar to the same options in webpackOptions.output
+            // Options simiar to the same options in webpackOptions.output
             // both options are optional
             filename: '[name].[contenthash].css',
             chunkFilename: '[name].[contenthash].css',

@@ -1,13 +1,11 @@
-:local(.navigatior) {
+.navigatior {
     height: 4.375rem;
     padding: 0 1rem;
     box-shadow: 0 0 0.3125rem #b0a0ad;
-
     display: flex;
     flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
-
 
     a {
         display: inline-block;
@@ -18,5 +16,18 @@
         font-size: 1.25rem;
         line-height: inherit;
         white-space: nowrap;
+    }
+
+    :global .tag {
+        display: inline-block;
+        background: #cd3151;
+        border-radius: 4px;
+        padding: 2px 5px 1px;
+        margin-left: 5px;
+        word-break: keep-all;
+        font-size: 0.85em;
+        font-weight: 400;
+        color: #fff;
+        animation: 'wobble-ver-left 1.5s infinite both';
     }
 }

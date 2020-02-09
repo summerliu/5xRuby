@@ -28,7 +28,7 @@ function Navigator(props) {
                         <a className="nav-link" href="https://astro.5xruby.tw/" target="_blank">
                             <span style={{fontSize: '.9em'}}><FontAwesomeIcon icon={faCompass}/></span>
                             ASTRO Camp
-                            <span className="tag">報名優惠中</span>
+                            <span className={styles.tag}>報名優惠中</span>
                         </a>
                     </li>
                     <li className="nav-item text-center">

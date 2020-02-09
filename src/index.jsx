@@ -7,7 +7,7 @@ function initialApplication() {
     // use commonJS require here because webpack HMR can't handle ES6 import
     const App = require('./pages/App').default;
     // render the app and save the new root element
-    ReactDOM.render(<App/>, document.getElementById('root'));
+    ReactDOM.render(<App/>, document.getElementById('app'));
 }
 
 initialApplication();
