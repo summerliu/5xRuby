@@ -135,6 +135,8 @@ const config = {
         // watch the files served by the devServer.contentBase option.
         watchContentBase: false,
         host: '0.0.0.0',
+        // for react-router-dom routing
+        historyApiFallback: true,
     },
 };
 
