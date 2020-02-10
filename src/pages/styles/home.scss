@@ -1,3 +1,129 @@
-.home {
-    
+@import "../../styles/rwd.scss";
+@import "../../styles/theme.scss";
+
+:local(.home) {
+    @include media-breakpoint-up(sm) {
+        margin-top: 0;
+    }
+    @include media-breakpoint-up(md) {
+        margin-top: 2rem;
+    }
+
+    .filter {
+        max-width: 1200px;
+        text-align: center;
+        margin: 1.2rem 0;
+        font-size: 15px;
+        margin: 2rem auto;
+        padding: 1rem 0;
+
+        a {
+            margin-right: 2rem;
+            
+            &:last-child {
+                margin: 0;
+            }
+
+            &.active {
+                color: #a1a1a1;
+            }
+        }
+    }
+}
+
+:local(.bannerSlider) {
+    // max-height: 500px;
+    // max-width: 1200px;
+    position: relative;
+    overflow: hidden;
+    transition: all 0.2s linear;
+    margin: auto;
+    margin-top: 0;
+
+    .sliderItem {
+        display: none;
+        // @include animate(fade, 1.2s, 1, linear);
+
+        img {
+            width: 100%;
+        }
+    }
+
+    .indicators {
+        position: absolute;
+        width: 100%;
+        bottom: .5rem;
+        text-align: center;
+
+        span {
+            display: inline-block;
+            margin-right: 12px;
+            width: 12px;
+            height: 12px;
+            font-size: 16px;
+            border-radius: 50%;
+            border: 1px solid $white;
+            cursor: pointer;
+            transition: all 0.2s linear;
+            background: $white;
+
+            &.active {
+                background: $red;
+            }
+
+            @include media-breakpoint-down(sm) {
+                height: 8px;
+                width: 8px;
+            }
+        }
+    }
+}
+
+:local(.features) {
+    background-color: #f7f7f7;
+    padding-bottom: 1.5rem;
+}
+
+:local(.lectureWrap) {
+    border: 1px solid #ddd;
+    cursor: pointer;
+    color: #666;
+    height: 100%;
+    background-color: #fff;
+
+    .lectureCover {
+        width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+        vertical-align: middle;
+    }
+
+    .lectureContent {
+        padding: .5rem 15px;
+    }
+
+    .badge {
+        display: inline-block;
+        font-size: 75%;
+        font-weight: 700;
+        line-height: 1;
+        text-align: center;
+        white-space: nowrap;
+        vertical-align: baseline;
+        border-radius: .25rem;
+        padding: 5px 7px;
+        color: #fff;
+    }
+
+    .badgeNew {
+        color: #fff;
+        background-color: #FF8E3B;
+    }
+
+    .badgeApply {
+        color: #fff;
+        background-color: #d90845;
+    }
 }

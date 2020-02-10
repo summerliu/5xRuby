@@ -12,9 +12,9 @@ function App() {
         <Router>
             <Navigatior/>
             <Route component={Home} exact path='/'/>
-            {/* <Route component={Contacts} path='/contacts'/>
+            <Route component={Contacts} path='/contacts'/>
             <Route component={Posts} path='/posts'/>
-            <Footer/> */}
+            <Footer/>
         </Router>
     )
 }
