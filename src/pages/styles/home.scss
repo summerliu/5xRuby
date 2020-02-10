@@ -8,32 +8,9 @@
     @include media-breakpoint-up(md) {
         margin-top: 2rem;
     }
-
-    .filter {
-        max-width: 1200px;
-        text-align: center;
-        margin: 1.2rem 0;
-        font-size: 15px;
-        margin: 2rem auto;
-        padding: 1rem 0;
-
-        a {
-            margin-right: 2rem;
-            
-            &:last-child {
-                margin: 0;
-            }
-
-            &.active {
-                color: #a1a1a1;
-            }
-        }
-    }
 }
 
 :local(.bannerSlider) {
-    // max-height: 500px;
-    // max-width: 1200px;
     position: relative;
     overflow: hidden;
     transition: all 0.2s linear;
@@ -42,7 +19,6 @@
 
     .sliderItem {
         display: none;
-        // @include animate(fade, 1.2s, 1, linear);
 
         img {
             width: 100%;
@@ -125,5 +101,13 @@
     .badgeApply {
         color: #fff;
         background-color: #d90845;
+    }
+}
+
+:local(.cases) {
+    padding-bottom: 1.5rem;
+
+    .caseWrap {
+        border: 1px solid #ddd;
     }
 }

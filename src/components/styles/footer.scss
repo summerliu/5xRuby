@@ -3,4 +3,37 @@
     bottom: 0rem;
     width: 100%;
     font-size: 0.875rem;
+    background: #F7F7F5;
+    margin-top: 3rem;
+
+    h5 {
+        font-size: 0.875rem;
+        margin: 0.625rem 1.5625rem 0.625rem 0rem;
+        font-weight: bold;
+        display: inline-block;
+    }
+
+    a {
+        color: #333;
+        text-decoration: none;
+        background-color: transparent;
+    }
+
+    .scrollUp {
+        position: fixed;
+        height: 3.125rem;
+        width: 3.125rem;
+        background-color: #d90845;
+        color: #f7f7f7;
+        border-radius: 50%;
+        bottom: 1.5rem;
+        right: 1.25rem;
+        font-weight: bold;
+        line-height: 3.125rem;
+        font-size: 1.875rem;
+        cursor: pointer;
+        transition: all 0.3s;
+        z-index: 2;
+        text-align: center;
+    }
 }

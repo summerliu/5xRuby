@@ -95,7 +95,7 @@ class BannerSlider extends React.Component {
             let indicatorClass = '';
             if (index === state.currentIndex) {
                 imageStyle = {display: 'block'};
-                indicatorClass = 'active';
+                indicatorClass = styles.active;
             } else {
                 imageStyle = {display: 'none'};
             }
@@ -168,7 +168,34 @@ const Features = () => {
             </div>
         </div>
     );
-}
+};
+
+const talks = [
+    {
+        badge: { new: "新開課", apply: '開放報名中' },
+        title: '工作上用得到的函數式程式設計：從觀念到實務 - 假日班',
+        teacher: "蘇泰安 (Taian Su)",
+        time: '2 月｜假日班',
+        img: "https://5xruby.tw/assets/images/talks/cover/functional-09be0f61.jpg",
+        link: '/talks/functional',
+    },
+    {
+        badge: { apply: "開放報名中" },
+        title: '客製化進階 RWD 手機版網頁設計班 - 假日班',
+        teacher: "李建杭 (Amos Lee)",
+        time: '3 月｜假日班',
+        img: 'https://5xruby.tw/assets/images/talks/cover/rwd-99b9e59b.jpg',
+        link: '/talks/functional',
+    },
+    {
+        badge: { apply: '開放報名中' },
+        title: 'Vue.js 與 Vuex 前端開發實戰課程 - 假日班',
+        teacher: "李建杭 (Amos Lee)",
+        time: '3 月｜假日班',
+        img: 'https://5xruby.tw/assets/images/talks/cover/vue-js-61eaa1c7.jpg',
+        link: '/talks/vue-js',
+    },
+];
 
 const Lectures = () => {
     return (
@@ -179,71 +206,32 @@ const Lectures = () => {
                         <h3 className="text-center mb-5 mt-5 pb-4">
                             <span>熱門網頁設計課程推薦</span>
                         </h3>
-
                         <div className="lecture-list d-flex flex-wrap pb-5">
-                            <div className="talks-partial col-12 col-sm-12 col-md-6 col-lg-4 pic mb-4 mb-sm-5">
-                                <a href="/talks/functional">
-                                    <div className={styles.lectureWrap}>
-                                        <div className={styles.lectureCover}>
-                                            <img src="https://5xruby.tw/assets/images/talks/cover/functional-09be0f61.jpg" alt="工作上用得到的函數式程式設計：從觀念到實務 - 假日班"/>
-                                        </div>
-                                        <div className={styles.lectureContent}>
-                                            <span className={styles.badge, styles.badgeNew}>新開課</span>
-                                            <span className={styles.badge, styles.badgeApply}>開放報名中</span>
-                                            <h4 className="mt-2 mb-2 mb-sm-4 font-weight-bold">工作上用得到的函數式程式設計：從觀念到實務 - 假日班</h4>
-                                            <small>講師：蘇泰安 (Taian Su)</small>
-                                                <div className="lecture-time mt-2 pt-sm-3 pt-2 pt-sm-3 d-flex">
-                                                    <small className="flex-grow-1">開課時間</small>
-                                                    <div className="lecture-time-item">
-                                                        <span className="badge badge-course-time mb-1">2 月｜假日班</span>
+                            {talks.map((talk, index) => {
+                                return (
+                                    <div className="talks-partial col-12 col-sm-12 col-md-6 col-lg-4 pic mb-4 mb-sm-5" key={index}>
+                                        <a href={talk.link}>
+                                            <div className={styles.lectureWrap}>
+                                                <div className={styles.lectureCover}>
+                                                    <img src={talk.img} alt={talk.title}/>
+                                                </div>
+                                                <div className={styles.lectureContent}>
+                                                    {talk.new ? <span className={styles.badge, styles.badgeNew}>{talk.new}</span> : null}
+                                                    <span className={styles.badge, styles.badgeApply}>{talk.apply}</span>
+                                                    <h4 className="mt-2 mb-2 mb-sm-4 font-weight-bold">{talk.title}</h4>
+                                                    <small>講師：{talk.teacher}</small>
+                                                    <div className="lecture-time mt-2 pt-sm-3 pt-2 pt-sm-3 d-flex">
+                                                        <small className="flex-grow-1">開課時間</small>
+                                                        <div className="lecture-time-item">
+                                                            <span className="badge badge-course-time mb-1">{talk.time}</span>
+                                                        </div>
                                                     </div>
                                                 </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
-
-                            <div className="talks-partial col-12 col-sm-12 col-md-6 col-lg-4 pic mb-4 mb-sm-5">
-                                <a href="/talks/rwd">
-                                    <div className={styles.lectureWrap}>
-                                        <div className={styles.lectureCover}>
-                                            <img src="https://5xruby.tw/assets/images/talks/cover/rwd-99b9e59b.jpg" alt="客製化進階 RWD 手機版網頁設計班 - 假日班"/>
-                                        </div>
-                                        <div className={styles.lectureContent}>
-                                            <span className={styles.badge, styles.badgeApply}>開放報名中</span>
-                                            <h4 className="mt-2 mb-2 mb-sm-4 font-weight-bold">客製化進階 RWD 手機版網頁設計班 - 假日班</h4>
-                                            <small>講師：李建杭 (Amos Lee)</small>
-                                            <div className="lecture-time mt-2 pt-sm-3 pt-2 pt-sm-3 d-flex">
-                                                <small className="flex-grow-1">開課時間</small>
-                                                <div className="lecture-time-item">
-                                                    <span className="badge badge-course-time mb-1">3 月｜假日班</span>
-                                                </div>
                                             </div>
-                                        </div>
+                                        </a>
                                     </div>
-                                </a>
-                            </div>
-
-                            <div className="talks-partial col-12 col-sm-12 col-md-6 col-lg-4 pic mb-4 mb-sm-5">
-                                <a href="/talks/vue-js">
-                                    <div className={styles.lectureWrap}>
-                                        <div className={styles.lectureCover}>
-                                            <img src="https://5xruby.tw/assets/images/talks/cover/vue-js-61eaa1c7.jpg" alt="Vue.js 與 Vuex 前端開發實戰課程 - 假日班"/>
-                                        </div>
-                                        <div className={styles.lectureContent}>
-                                            <span className={styles.badge, styles.badgeApply}>開放報名中</span>
-                                            <h4 className="mt-2 mb-2 mb-sm-4 font-weight-bold">Vue.js 與 Vuex 前端開發實戰課程 - 假日班</h4>
-                                            <small>講師：許國政 (Kuro Hsu)</small>
-                                            <div className="lecture-time mt-2 pt-sm-3 pt-2 pt-sm-3 d-flex">
-                                                <small className="flex-grow-1">開課時間</small>
-                                                <div className="lecture-time-item">
-                                                    <span className="badge badge-course-time mb-1">3 月｜假日班</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </div>
+                                );
+                            })}
                             <div className="col-12 text-center">
                                 <a className="btn btn-lg btn-red mt-4" href="/talks">看更多網頁課程</a>
                             </div>
@@ -253,7 +241,7 @@ const Lectures = () => {
             </div>
         </div>
     );
-}
+};
 
 // class AvatarSlider extends React.Component {
 //     constructor(props) {
@@ -347,17 +335,86 @@ const Lectures = () => {
 //     }
 // }
 
-// const Showcases = () => {
-//     return (
+const shows = [
+    {
+        name: 'SpaceNextDoor',
+        detail: 'Space Next Door is inspired by the sharing economy in which we hope to encourage people to put up their unused space so that users looking for personal or business storage space have better options, closer to where they need it. We are striving to build a trusted community marketplace for you to list, discover and book the nearest and best space at affordable prices.',
+        img: 'https://5xruby.tw/assets/images/showcases/space_next_door-4dfdfeb6.png',
+        link: 'https://spacenextdoor.com/',
+    },
+    {
+        name: 'Shopmatic Go app',
+        detail: 'Shopmatic Go is an exciting online platform where you can create a unique and comprehensive online store for your business, in a matter of minutes.',
+        img: 'https://5xruby.tw/assets/images/showcases/shopmatic_go-f7b86d46.png',
+        link: 'https://itunes.apple.com/in/app/shopmatic-go/id1174712646?mt=8',
+    },
+    {
+        name: '跨境電子商務 Shopmatic',
+        detail: 'Shopmatic manages the entire ecosystem for anyone wanting to sell online. We go the extra mile to ensure that we help you in every step of the process to grow your business online - from developing your own unique webstore, to listing you on marketplaces and social channels, to providing you insights on how to sell online.',
+        img: 'https://5xruby.tw/assets/images/showcases/shopmatic-92ff9dcf.jpg',
+        link: 'https://goshopmatic.com/in/',
+    },
+];
 
-//     );
-// }
+const Cases = () => {
+    return (
+        <div className={styles.cases}>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-sm-12 col-lg-12 col-md-12 center-block mt-5">
+                        <h3 className="text-center mt-5 pb-4">案例作品 Showcase</h3>
+                        <div className="d-flex flex-wrap">
+                            {shows.map((show, index) => {
+                                return (
+                                    <div className="showcases-partial col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 pt-4 case" key={index}>
+                                        <a href={show.link} target="_blank">
+                                            <div className={styles.caseWrap}>
+                                                <img src={show.img} alt={show.name}/>
+                                                <h4 className="rl-padding mt-3 mb-3">{show.name}</h4>
+                                                <div className="rl-padding">
+                                                    <p className="descri mb-5 text-left">{show.detail}</p>
+                                                </div>
+                                            </div>
+                                        </a>
+                                    </div>
+                                );
+                            })}
+                            <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12 text-right mt-3">
+                                <a className="text-red" href="./showcases">...更多案例</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
 
-// const About = () => {
-//     return (
-
-//     );
-// }
+const About = () => {
+    return (
+        <div>
+            <div className="container">
+                <div className="row">
+                    <div className="col-12 col-sm-12 col-md-12 col-lg-12 col-xl-12">
+                        <h3 className="text-center mt-3 mb-2">想更瞭解我們嗎？</h3>
+                        <p className="text text-center mb-4 mt-4">
+                            您可以看看
+                            <a className="text-red" href="/faq">常見問題</a>
+                            或者直接
+                            <a className="text-red" href="/contacts">線上洽詢</a>
+                            ，會有親切的客服人員回答您的問題，<br/>
+                             也可以透過社群網站隨時關注我們的動態。
+                        </p>
+                    </div>
+                    <div className="social-btn bottom-spacing-lg mx-auto mb-5">
+                        <a target="_blank" className="rl-spacing mr-4" href="https://www.facebook.com/5xruby"><img src="https://5xruby.tw/assets/images/index/icon/icon-fb-2f24e7a0.png" alt="facebook icon"/></a>
+                        <a target="_blank" className="rl-spacing ml-3" href="https://twitter.com/5xruby"><img src="https://5xruby.tw/assets/images/index/icon/icon-twitter-89f8d087.png" alt="twitter icon"/></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    );
+}
 
 function Home() {
     return (
@@ -365,6 +422,8 @@ function Home() {
             <BannerSlider/>
             <Features/>
             <Lectures/>
+            <Cases/>
+            <About/>
         </div>
     )
 }

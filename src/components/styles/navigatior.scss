@@ -1,5 +1,6 @@
-.navigatior {
+:local(.navigatior) {
     height: 4.375rem;
+    width: 100%;
     padding: 0 1rem;
     box-shadow: 0 0 0.3125rem #b0a0ad;
     display: flex;
@@ -18,7 +19,7 @@
         white-space: nowrap;
     }
 
-    :global .tag {
+    .tag {
         display: inline-block;
         background: #cd3151;
         border-radius: 4px;

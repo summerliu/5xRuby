@@ -1,9 +1,11 @@
 import React from 'react';
 import styles from './styles/footer.scss';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
 
 function Footer() {
     return (
-        <div className={styles.footer, "overwrite-footer light-grey-bg mt-5"}>
+        <div className={styles.footer}>
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-3">
@@ -58,8 +60,8 @@ function Footer() {
                     </div>
                 </div>
             </div>
-            <div className="scrollup to-top text-center" id="scrTop">
-                <i className="fa fa-angle-up" id="scrUp" aria-hidden="true"></i>
+            <div className={styles.scrollUp} id="scrTop">
+                <FontAwesomeIcon icon={faAngleUp} id="scrUp" aria-hidden="true"/>
             </div>
         </div>
     )
