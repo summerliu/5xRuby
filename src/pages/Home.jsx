@@ -55,9 +55,25 @@ class BannerSlider extends React.Component {
         }
     }
 
+    imageSlideAuto = () => {
+        if (this.bannerSlider !== undefined) {
+            this.changeImageIndex(true);
+        }
+    }
+
+    handleCurrentClick = (index) => {
+        clearInterval(this.timer);
+        this.timer = undefined;
+        this.setState({
+            currentIndex: index,
+        });
+        this.timer = setInterval(this.imageSlideAuto, 2500);
+    }
+
     changeImageIndex(direction) {
         let currentIndex;
-        const bannerCount = this.state.banners.length;
+        const { banners } = this.state;
+        const bannerCount = banners.length;
         if (direction) {
             const index = this.state.currentIndex + 1;
             currentIndex = index < bannerCount ? index : 0;
@@ -66,23 +82,8 @@ class BannerSlider extends React.Component {
             currentIndex = index >= 0 ? index : bannerCount - 1;
         }
         this.setState({
-            currentIndex: currentIndex,
+            currentIndex,
         });
-    }
-
-    imageSlideAuto = () => {
-        if (this.bannerSlider !== undefined) {
-            this.changeImageIndex(true);
-        }
-    }
-
-    handleCurrentClick = (index, e) => {
-        clearInterval(this.timer);
-        this.timer = undefined;
-        this.setState({
-            currentIndex: index,
-        });
-        this.timer = setInterval(this.imageSlideAuto, 2500);
     }
 
     render() {
@@ -102,19 +103,20 @@ class BannerSlider extends React.Component {
 
             bannerImages.push(banner.image);
             bannerItems.push(
-                    <div key={index} style={imageStyle} className={styles.sliderItem}>
-                        <a href={banner.link} target='_blank'>
-                            <img src={banner.image} />
+                    <div key={`banner-${index}`} style={imageStyle} className={styles.sliderItem}>
+                        <a href={banner.link} target="_blank" rel="noopener noreferrer">
+                            <img src={banner.image} alt={banner.link} />
                         </a>
-                    </div>
+                    </div>,
             );
+
             indicators.push(
-                <span key={index} className={indicatorClass} onClick={this.handleCurrentClick.bind(this, index)}/>
+                <span key={index} className={indicatorClass} onClick={this.handleCurrentClick.bind(this, index)} />,
             );
         });
 
         return (
-            <div className={styles.bannerSlider} ref={(e) => {this.bannerSlider = e;}}>
+            <div className={styles.bannerSlider} ref={(e) => { this.bannerSlider = e; }}>
                 {bannerItems}
                 <div className={styles.indicators}>
                     {indicators}
@@ -136,9 +138,21 @@ const Features = () => {
                         <div className="feature-list d-flex text-center flex-wrap">
                             <div className="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
                                 <a href="/talks">
-                                    <img src="https://5xruby.tw/assets/images/index/feature-list/feature-list-img1-0d20ab19.png" alt="網頁設計前後端課程教學 | 五倍紅寶石"/>
-                                    <h3 className="pt-3">網頁設計<br/>>前後端課程教學</h3>
-                                    <p className="pt-3 pb-3 text-center">帶你掌握<strong>程式技能轉職工程師</strong>，<strong>程式課程</strong>從入門到進階讓你快速上手，學員好評推薦<strong>轉職課程</strong>！</p>
+                                    <img src="https://5xruby.tw/assets/images/index/feature-list/feature-list-img1-0d20ab19.png" alt="網頁設計前後端課程教學 | 五倍紅寶石" />
+                                    <h3 className="pt-3">
+                                    網頁設計
+                                    <br />
+                                    前後端課程教學
+                                    </h3>
+                                    <p className="pt-3 pb-3 text-center">
+                                    帶你掌握
+                                    <strong>程式技能轉職工程師</strong>
+                                    ，
+                                    <strong>程式課程</strong>
+                                    從入門到進階讓你快速上手，學員好評推薦
+                                    <strong>轉職課程</strong>
+                                    ！
+                                    </p>
                                 </a>
                             </div>
                             <div className="col-12 col-sm-12 col-md-3 col-lg-3 col-xl-3">
@@ -172,17 +186,17 @@ const Features = () => {
 
 const talks = [
     {
-        badge: { new: "新開課", apply: '開放報名中' },
+        badge: { new: '新開課', apply: '開放報名中' },
         title: '工作上用得到的函數式程式設計：從觀念到實務 - 假日班',
-        teacher: "蘇泰安 (Taian Su)",
+        teacher: '蘇泰安 (Taian Su)',
         time: '2 月｜假日班',
-        img: "https://5xruby.tw/assets/images/talks/cover/functional-09be0f61.jpg",
+        img: 'https://5xruby.tw/assets/images/talks/cover/functional-09be0f61.jpg',
         link: '/talks/functional',
     },
     {
-        badge: { apply: "開放報名中" },
+        badge: { apply: '開放報名中' },
         title: '客製化進階 RWD 手機版網頁設計班 - 假日班',
-        teacher: "李建杭 (Amos Lee)",
+        teacher: '李建杭 (Amos Lee)',
         time: '3 月｜假日班',
         img: 'https://5xruby.tw/assets/images/talks/cover/rwd-99b9e59b.jpg',
         link: '/talks/functional',
@@ -190,7 +204,7 @@ const talks = [
     {
         badge: { apply: '開放報名中' },
         title: 'Vue.js 與 Vuex 前端開發實戰課程 - 假日班',
-        teacher: "李建杭 (Amos Lee)",
+        teacher: '李建杭 (Amos Lee)',
         time: '3 月｜假日班',
         img: 'https://5xruby.tw/assets/images/talks/cover/vue-js-61eaa1c7.jpg',
         link: '/talks/vue-js',
@@ -314,7 +328,7 @@ const Lectures = () => {
 //             bannerImages.push(banner.image);
 //             bannerItems.push(
 //                     <div key={index} style={imageStyle} className={styles.sliderItem}>
-//                         <a href={banner.link} target='_blank'>
+//                         <a href={banner.link} target='_blank' rel="noopener noreferrer">
 //                             <img src={banner.image} />
 //                         </a>
 //                     </div>
@@ -367,7 +381,7 @@ const Cases = () => {
                             {shows.map((show, index) => {
                                 return (
                                     <div className="showcases-partial col-12 col-sm-12 col-md-6 col-lg-6 col-xl-4 pt-4 case" key={index}>
-                                        <a href={show.link} target="_blank">
+                                        <a href={show.link} target="_blank" rel="noopener noreferrer">
                                             <div className={styles.caseWrap}>
                                                 <img src={show.img} alt={show.name}/>
                                                 <h4 className="rl-padding mt-3 mb-3">{show.name}</h4>
@@ -407,25 +421,25 @@ const About = () => {
                         </p>
                     </div>
                     <div className="social-btn bottom-spacing-lg mx-auto mb-5">
-                        <a target="_blank" className="rl-spacing mr-4" href="https://www.facebook.com/5xruby"><img src="https://5xruby.tw/assets/images/index/icon/icon-fb-2f24e7a0.png" alt="facebook icon"/></a>
-                        <a target="_blank" className="rl-spacing ml-3" href="https://twitter.com/5xruby"><img src="https://5xruby.tw/assets/images/index/icon/icon-twitter-89f8d087.png" alt="twitter icon"/></a>
+                        <a target="_blank" rel="noopener noreferrer" className="rl-spacing mr-4" href="https://www.facebook.com/5xruby"><img src="https://5xruby.tw/assets/images/index/icon/icon-fb-2f24e7a0.png" alt="facebook icon"/></a>
+                        <a target="_blank" rel="noopener noreferrer" className="rl-spacing ml-3" href="https://twitter.com/5xruby"><img src="https://5xruby.tw/assets/images/index/icon/icon-twitter-89f8d087.png" alt="twitter icon" /></a>
                     </div>
                 </div>
             </div>
         </div>
     );
-}
+};
 
 function Home() {
     return (
         <div className={styles.home}>
-            <BannerSlider/>
-            <Features/>
-            <Lectures/>
-            <Cases/>
-            <About/>
+            <BannerSlider />
+            <Features />
+            <Lectures />
+            <Cases />
+            <About />
         </div>
-    )
+    );
 }
 
 export default Home;

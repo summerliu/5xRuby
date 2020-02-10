@@ -1,7 +1,7 @@
 import React from 'react';
-import styles from './styles/footer.scss';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleUp } from '@fortawesome/free-solid-svg-icons';
+import styles from './styles/footer.scss';
 
 function Footer() {
     return (
@@ -9,7 +9,7 @@ function Footer() {
             <div className="container">
                 <div className="row">
                     <div className="col-12 col-md-3">
-                        <a href="/press" className="d-block mb-3 press-img"><img src="https://5xruby.tw/assets/images/footer/press-img-3161693e.png" title="媒體報導" alt="媒體報導"/></a>
+                        <a href="/press" className="d-block mb-3 press-img"><img src="https://5xruby.tw/assets/images/footer/press-img-3161693e.png" title="媒體報導" alt="媒體報導" /></a>
                         <a href="https://www.cakeresume.com/jobs" className="d-block cakeresume press-img" target="_blank"><img src="https://5xruby.tw/assets/images/footer/cakeresume-8938f367.png" title="CakeResume 找工作" alt="CakeResume 找工作" style={{ maxWidth: '180px', marginBottom: '10px', paddingRight: '6px' }}/><span className="text-muted">找工作</span></a>
                     </div>
                     <div className="col-12 col-md-9">

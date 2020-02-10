@@ -5,16 +5,16 @@ module.exports = {
         "browser": true,
         "es6": true,
         "node": true,
-        // "mocha": true
+        "mocha": true
     },
     "extends": [
-        "eslint:recommended",
+        "airbnb",
         "plugin:react/recommended"
     ],
     "globals": {
         "Atomics": "readonly",
         "SharedArrayBuffer": "readonly",
-        "module": 0,
+        "module": 'off',
         "$": false
     },
     "parserOptions": {

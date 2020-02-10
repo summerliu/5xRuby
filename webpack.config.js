@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 const path = require('path');
 const webpack = require('webpack');
 const DotEnvPlugin = require('dotenv-webpack');
@@ -18,8 +19,8 @@ const config = {
 
     // where to dump the output of a production build
     output: {
-        path: path.resolve(OUTPUT_PATH, 'assets'),
-        publicPath: '/assets/',
+        path: path.resolve(OUTPUT_PATH, 'build'),
+        publicPath: '/build/',
         filename: '[name].[contenthash].js',
     },
 
@@ -32,7 +33,7 @@ const config = {
                 options: {
                     presets: [
                         '@babel/preset-env',
-                        '@babel/preset-react'
+                        '@babel/preset-react',
                     ],
                     plugins: [
                         ['@babel/plugin-syntax-jsx'],
@@ -81,7 +82,7 @@ const config = {
     resolve: {
         extensions: ['.jsx', '.js', '.json'],
         alias: {
-            'react': 'react',
+            react: 'react',
             'react-dom': 'react-dom',
         },
     },
