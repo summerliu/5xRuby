@@ -35,7 +35,7 @@ module.exports = {
         "react/jsx-uses-react": 1,
         "max-len": ["error", {
             "code": 140,
-            "tabWidth": 4,
+            "tabWidth": 2,
             "ignoreRegExpLiterals": true,
             "ignoreTemplateLiterals": true,
             "ignoreStrings": true,
@@ -115,27 +115,5 @@ module.exports = {
         "space-unary-ops": [2, { "words": true, "nonwords": false }],
         "yoda": [2, "never"],
         "no-eval": ["error", {"allowIndirect": true}],
-        "indent": [
-            "error", 4, {
-              "CallExpression": {
-                "arguments": 2,
-              },
-              "FunctionDeclaration": {
-                "body": 1,
-                "parameters": "first",
-              },
-              "FunctionExpression": {
-                "body": 1,
-                "parameters": "first",
-              },
-              "ArrayExpression": "first",
-              "ObjectExpression": 1,
-              "SwitchCase": 1,
-              "ignoredNodes": [
-                "ConditionalExpression",
-                "MemberExpression"
-              ],
-            },
-        ]
     }
 };

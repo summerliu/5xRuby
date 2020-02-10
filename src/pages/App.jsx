@@ -8,15 +8,15 @@ import Footer from '../components/footer';
 import './styles/app.scss';
 
 function App() {
-    return (
-        <Router>
-            <Navigatior />
-            <Route component={Home} exact path="/5xRuby" />
-            <Route component={Contacts} path="/contacts" />
-            <Route component={Posts} path="/posts" />
-            <Footer />
-        </Router>
-    );
+  return (
+    <Router>
+      <Navigatior />
+      <Route component={Home} exact path="/5xRuby" />
+      <Route component={Contacts} path="/contacts" />
+      <Route component={Posts} path="/posts" />
+      <Footer />
+    </Router>
+  );
 }
 
 export default App;
