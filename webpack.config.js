@@ -19,8 +19,8 @@ const config = {
 
   // where to dump the output of a production build
   output: {
-    path: path.resolve(OUTPUT_PATH, 'build'),
-    publicPath: '/build/',
+    path: path.resolve(OUTPUT_PATH),
+    publicPath: '/',
     filename: '[name].[contenthash].js',
   },
 
